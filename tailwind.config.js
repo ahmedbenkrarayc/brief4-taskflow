@@ -8,6 +8,9 @@ module.exports = {
         'md': '1023px',
         'lg': '1279px',
         'xl': '1280px'
+      },
+      fontFamily: {
+        poppins: ["Poppins", "serif"]
       }
     },
   },
