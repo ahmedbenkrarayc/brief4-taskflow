@@ -6,10 +6,10 @@
     <title>TaskFlow</title>
     <link href="./css/output.css" rel="stylesheet">
 </head>
-<body class="p-10 font-poppins">
+<body class="p-10 font-poppins text-primary">
     <header class="flex justify-between items-center">
         <div class="flex items-center gap-x-4">
-            <span class="block px-4 py-2 w-fit text-white text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
+            <span class="block cursor-pointer px-4 py-2 w-fit text-white text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
             <h1 class="text-2xl font-[500]">Taskflow Project</h1>
         </div>
         <div class="flex -space-x-2 overflow-hidden">
@@ -20,6 +20,44 @@
         </div>
     </header>
     
+    <section class="mt-8 border-b flex justify-between items-center">
+        <span class="block w-fit text-sm font-medium px-4 py-4 border-b-2 border-primary"><i class="fa-brands fa-trello mr-2"></i>Kanban</span>
+        <div class="w-fit flex items-center">
+            <div class="flex items-center border rounded-md shadow px-4 py-2">
+                <i class="fa-solid fa-magnifying-glass text-[12px] mr-2"></i><input type="text" placeholder="Search ..." class="outline-none text-[12px]">
+            </div>
+            <span class="block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
+            <button class="text-xs font-medium border bg-white text-primary w-fit h-fit px-4 py-2 rounded-md shadow mr-2"><i class="fa-solid fa-bars-staggered mr-1"></i>Filter</button>
+            <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
+        </div>
+    </section>
+
+    <section class="mt-10 grid grid-cols-3 gap-x-6">
+        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
+            <div class="flex items-center">
+                <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
+                <h1 class="text-[15px] font-medium mr-6">To-Do</h1>
+                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+            </div>
+            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
+        </div>
+        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
+            <div class="flex items-center">
+                <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
+                <h1 class="text-[15px] font-medium mr-6">In Progress</h1>
+                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+            </div>
+            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
+        </div>
+        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
+            <div class="flex items-center">
+                <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
+                <h1 class="text-[15px] font-medium mr-6">Done</h1>
+                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+            </div>
+            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
+        </div>
+    </section>
     <script src="https://kit.fontawesome.com/3183b49327.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,6 +11,9 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "serif"]
+      },
+      colors: {
+        primary: '#202144'
       }
     },
   },
