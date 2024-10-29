@@ -6,58 +6,98 @@
     <title>TaskFlow</title>
     <link href="./css/output.css" rel="stylesheet">
 </head>
-<body class="p-10 font-poppins text-primary">
-    <header class="flex justify-between items-center">
+<body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary">
+    <header class="flex justify-between items-center flex-wrap gap-y-6">
         <div class="flex items-center gap-x-4">
-            <span class="block cursor-pointer px-4 py-2 w-fit text-white text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
-            <h1 class="text-2xl font-[500]">Taskflow Project</h1>
+            <span class="block cursor-pointer px-4 py-2 w-fit text-white sm:text-lg md:text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
+            <h1 class="sm:text-xl md:text-2xl font-[500]">Taskflow Project</h1>
         </div>
         <div class="flex -space-x-2 overflow-hidden">
-            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
-            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <img class="inline-block sm:h-6 sm:w-6 md:h-8 md:w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <img class="inline-block sm:h-6 sm:w-6 md:h-8 md:w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <img class="inline-block sm:h-6 sm:w-6 md:h-8 md:w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
+            <img class="inline-block sm:h-6 sm:w-6 md:h-8 md:w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
         </div>
     </header>
     
-    <section class="mt-8 border-b flex justify-between items-center">
+    <section class="mt-8 border-b flex sm:flex-col-reverse md:flex-row md:justify-between md:items-center gap-y-6">
         <span class="block w-fit text-sm font-medium px-4 py-4 border-b-2 border-primary"><i class="fa-brands fa-trello mr-2"></i>Kanban</span>
-        <div class="w-fit flex items-center">
-            <div class="flex items-center border rounded-md shadow px-4 py-2">
+        <div class="w-fit flex items-center flex-wrap gap-y-4">
+            <div class="flex items-center border rounded-md shadow px-4 py-2 sm:mr-4 md:mr-0">
                 <i class="fa-solid fa-magnifying-glass text-[12px] mr-2"></i><input type="text" placeholder="Search ..." class="outline-none text-[12px]">
             </div>
-            <span class="block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
+            <span class="sm:hidden md:block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
             <button class="text-xs font-medium border bg-white text-primary w-fit h-fit px-4 py-2 rounded-md shadow mr-2"><i class="fa-solid fa-bars-staggered mr-1"></i>Filter</button>
             <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
         </div>
     </section>
 
-    <section class="mt-10 grid grid-cols-3 gap-x-6">
-        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
-            <div class="flex items-center">
-                <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
-                <h1 class="text-[15px] font-medium mr-6">To-Do</h1>
-                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+    <section class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
+        <section>
+            <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
+                    <h1 class="text-[15px] font-medium mr-5">To-Do</h1>
+                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                </div>
+                <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
             </div>
-            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
-        </div>
-        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
-            <div class="flex items-center">
-                <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
-                <h1 class="text-[15px] font-medium mr-6">In Progress</h1>
-                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+
+            <div>
+                <div draggable="true" class="border border-l-red-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+                    <div class="text-red-800 text-[10px] flex items-center gap-x-2 bg-red-200 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
+                    <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
+                    <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
+                    <div class="flex -space-x-1 overflow-hidden mt-6">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                      </div>
+                </div>
             </div>
-            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
-        </div>
-        <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md">
-            <div class="flex items-center">
-                <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
-                <h1 class="text-[15px] font-medium mr-6">Done</h1>
-                <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+        </section>
+        <section>
+            <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
+                    <h1 class="text-[15px] font-medium mr-5">In Progress</h1>
+                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                </div>
+                <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
             </div>
-            <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
+            <div>
+                <div draggable="true" class="border border-l-orange-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+                    <div class="text-orange-800 text-[10px] flex items-center gap-x-2 bg-orange-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Medium Priority</div>
+                    <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
+                    <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
+                    <div class="flex -space-x-1 overflow-hidden mt-6">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                      </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
+                    <h1 class="text-[15px] font-medium mr-5">Done</h1>
+                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                </div>
+                <i class="fa-solid fa-plus block text-gray-600 cursor-pointer"></i>
+            </div>
+            <div draggable="true" class="border border-l-green-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+                <div class="text-green-800 text-[10px] flex items-center gap-x-2 bg-green-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Low Priority</div>
+                <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
+                <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
+                <div class="flex -space-x-1 overflow-hidden mt-6">
+                    <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  </div>
+            </div>
         </div>
+        </section>
     </section>
+    
     <script src="https://kit.fontawesome.com/3183b49327.js" crossorigin="anonymous"></script>
 </body>
 </html>
