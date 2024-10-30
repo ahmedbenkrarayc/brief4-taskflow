@@ -44,7 +44,7 @@
             </div>
 
             <div>
-                <div draggable="true" class="border bg-white border-l-red-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+                <div draggable="true" class="border taskcard bg-white border-l-red-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
                     <div class="text-red-800 text-[10px] flex items-center gap-x-2 bg-red-200 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
                     <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
@@ -101,7 +101,7 @@
     <!-- create modal -->
     <section id="create-modal" class="fixed top-0 right-[-100%] bg-white shadow-2xl h-screen sm:w-[90%] md:w-[400px] ml-auto rounded-l-md overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-lg">
         <div class="px-6 py-4 text-[#707085] flex items-center justify-between border-b">
-            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project / to do</span>
+            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project</span>
             <i class="block fa-solid fa-xmark cursor-pointer"></i>
         </div>
         <div class="px-6 pt-6">
@@ -144,11 +144,58 @@
         </div>
     </section>
 
-    <!-- create modal -->
+    <!-- update modal -->
+    <section id="update-modal" class="fixed top-0 right-[-100%] bg-white shadow-2xl h-screen sm:w-[90%] md:w-[400px] ml-auto rounded-l-md overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-lg">
+        <div class="px-6 py-4 text-[#707085] flex items-center justify-between border-b">
+            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project</span>
+            <i class="block fa-solid fa-xmark cursor-pointer"></i>
+        </div>
+        <div class="px-6 pt-6">
+            <h1 class="text-[24px] font-semibold">Update A Task</h1>
+
+            <form class="my-[30px]" action="" method="post">
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="title">Title</label>
+                    <input type="text" placeholder="Enter title" value="Improving ui design" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="title">Status</label>
+                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="todo" selected>Todo</option>
+                        <option value="inprogress">In progress</option>
+                        <option value="done">done</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="title">Priority</label>
+                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="p1" selected>High (p1)</option>
+                        <option value="p2">Medium (p2)</option>
+                        <option value="p3">Low (p3)</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="title">Due Date</label>
+                    <input type="date" value="2024-10-30" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="title">Description</label>
+                    <textarea placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi</textarea>
+                </div>
+
+                <div class="mt-8 flex gap-x-2 gap-y-6">
+                    <button class="text-xs font-medium bg-blue-700 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Modify</button>
+                    <button class="text-xs font-medium bg-red-600 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Delete</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- filter modal -->
     <section id="filter-modal" class="fixed top-0 right-[-100%] bg-white shadow-2xl h-screen sm:w-[90%] md:w-[400px] ml-auto rounded-l-md overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-lg">
         <div class="px-6 py-4 text-[#707085] flex items-center justify-between border-b">
-            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project / filters</span>
-            <i class="block fa-solid fa-xmark cursor-pointer closemd"></i>
+            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project</span>
+            <i class="block fa-solid fa-xmark cursor-pointer"></i>
         </div>
         <div class="px-6 pt-6">
             <h1 class="text-[24px] font-semibold">Filter tasks</h1>
