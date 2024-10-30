@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes movetoright{
+    from{
+        right: -100%;
+    }
+    to{
+        right: 0;
+    }
+}
+
+.showModal{
+    animation: movetoright 700ms ease-in-out forwards;
+}
+
+@keyframes movetoleft{
+    from{
+        right: 0;
+    }
+    to{
+        right: -100%;
+    }
+}
+
+.hideModal{
+    animation: movetoleft 700ms ease-in-out forwards;
+}
