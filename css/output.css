@@ -1106,6 +1106,21 @@ video {
   color: rgb(22 101 52 / var(--tw-text-opacity));
 }
 
+@keyframes growcard{
+  from{
+    transform: scale(0);
+  }
+
+  to{
+    transform: scale(1);
+  }
+}
+
+.growcard{
+  transform-origin: center;
+  animation: growcard 1s ease-in-out forwards;
+}
+
 .\*\:break-all > *{
   word-break: break-all;
 }

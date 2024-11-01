@@ -56,3 +56,17 @@
 .p3 > div:first-child{
     @apply text-green-800 bg-green-200;
 }
+
+@keyframes growcard{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.growcard{
+    transform-origin: center;
+    animation: growcard 1s ease-in-out forwards;
+}

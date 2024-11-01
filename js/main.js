@@ -4,9 +4,11 @@ const todoSection = document.getElementById('todo')
 const doingSection = document.getElementById('doing')
 const doneSection = document.getElementById('done')
 
+const taskounter = document.getElementsByClassName('counter')
+Array.from(taskounter).forEach(item => item.textContent = 0)
+
 const manageValidationErrors = (input, error) => {
     if(error != ""){
-        console.log(input.classList)
         input.classList.add('inputError')
         console.log(input.classList)
         input.setAttribute('title', error)
@@ -60,8 +62,8 @@ const validation = (data, type) => {
 
     if(type != 'update'){
         const date = new Date()
-        date.getFullYear()+'-'+date.getMonth()+1+'-'+date.getDate()
-        if(data.date < date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()){
+        date.setHours(0, 0, 0, 0)
+        if(new Date(data.date) < date){
             manageValidationErrors(dateInput, 'The due date must be greater or equals to today')
             return false
         }else{
@@ -87,6 +89,10 @@ const validation = (data, type) => {
     return true
 }
 
+//Task statistics
+const displayStatistics = () => {
+    
+}
 
 //add a new task function
 const addTask = (e) => {
@@ -98,6 +104,7 @@ const addTask = (e) => {
     const description = document.getElementById('cdescription').value.trim()
 
     const data = {
+        id: tasks.length == 0 ? 1 : tasks[tasks.length-1].id + 1,
         title,
         status,
         priority,
@@ -108,10 +115,10 @@ const addTask = (e) => {
 
     if(validation(data, 'create')){
         tasks.push(data)
-        console.log(tasks)
+
         if(data.status == 'todo'){
             todoSection.innerHTML += `
-                <div draggable="true" class="${data.priority} border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+                <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
                     <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
                     <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description}</p>
@@ -123,7 +130,7 @@ const addTask = (e) => {
             `
         }else if(data.status == 'inprogress'){
             doingSection.innerHTML += `
-                <div draggable="true" class="${data.priority} border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+                <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
                     <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
                     <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description}</p>
@@ -135,8 +142,8 @@ const addTask = (e) => {
             `
         }else{
             doneSection.innerHTML += `
-                <div draggable="true" class="${data.priority} border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
-                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
+                <div id="task${data.id}" draggable="true" class="${data.priority}  border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[1growcard0px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
                     <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description}</p>
                     <div class="flex -space-x-1 overflow-hidden mt-6">
