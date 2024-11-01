@@ -10,6 +10,7 @@ const filterbtn = document.getElementById('filter')
 
 //open item for filters button
 const updatebtns = document.getElementsByClassName('taskcard')
+console.log(updatebtns)
 
 const showModal = (modal) => {
     if(modal.classList.contains('hideModal'))
@@ -47,10 +48,10 @@ filterModal.firstElementChild.lastElementChild.addEventListener('click', () => {
 
 //detect click on filter modal buttons to open and close
 
-Array.from(updatebtns).forEach(element => {
-    element.addEventListener('click', () => {
+document.addEventListener('click', (e) => {
+    if(e.target && e.target.matches('.taskcard')){
         showModal(updateModal)
-    }) 
+    }
 })
 
 updateModal.firstElementChild.lastElementChild.addEventListener('click', () => {

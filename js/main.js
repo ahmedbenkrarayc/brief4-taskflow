@@ -5,7 +5,6 @@ const doingSection = document.getElementById('doing')
 const doneSection = document.getElementById('done')
 
 const taskounter = document.getElementsByClassName('counter')
-Array.from(taskounter).forEach(item => item.textContent = 0)
 
 const manageValidationErrors = (input, error) => {
     if(error != ""){
@@ -91,7 +90,7 @@ const validation = (data, type) => {
 
 //Task statistics
 const displayStatistics = () => {
-    
+
 }
 
 //add a new task function
