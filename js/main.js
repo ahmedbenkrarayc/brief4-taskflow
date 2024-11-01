@@ -90,7 +90,10 @@ const validation = (data, type) => {
 
 //Task statistics
 const displayStatistics = () => {
-
+    const groupedTasks = Object.groupBy(tasks, item => item.status)
+    taskounter[0].textContent = groupedTasks.todo ? groupedTasks.todo.length : 0 
+    taskounter[1].textContent = groupedTasks.inprogress ? groupedTasks.inprogress.length : 0 
+    taskounter[2].textContent = groupedTasks.done ? groupedTasks.done.length : 0
 }
 
 //add a new task function
@@ -114,11 +117,12 @@ const addTask = (e) => {
 
     if(validation(data, 'create')){
         tasks.push(data)
-
+        displayStatistics()
+        const item = document.createElement('div')
         if(data.status == 'todo'){
-            todoSection.innerHTML += `
+            item.innerHTML = `
                 <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
-                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
+                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">${data.priority == 'p1' ? 'High priority' :  data.priority == 'p2' ? 'Medium priority' : 'Low priority'}</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
                     <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description}</p>
                     <div class="flex -space-x-1 overflow-hidden mt-6">
@@ -127,8 +131,10 @@ const addTask = (e) => {
                       </div>
                 </div>
             `
+
+            todoSection.appendChild(item)
         }else if(data.status == 'inprogress'){
-            doingSection.innerHTML += `
+            item.innerHTML = `
                 <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
                     <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
@@ -139,10 +145,12 @@ const addTask = (e) => {
                       </div>
                 </div>
             `
+
+            doingSection.appendChild(item)
         }else{
-            doneSection.innerHTML += `
-                <div id="task${data.id}" draggable="true" class="${data.priority}  border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
-                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[1growcard0px] py-[4px] rounded-md font-medium">High Priority</div>
+            item.innerHTML = `
+                <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
                     <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description}</p>
                     <div class="flex -space-x-1 overflow-hidden mt-6">
@@ -151,6 +159,8 @@ const addTask = (e) => {
                       </div>
                 </div>
             `
+
+            doneSection.appendChild(item)
         }
     }
 }
