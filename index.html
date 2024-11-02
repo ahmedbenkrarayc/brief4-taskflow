@@ -158,12 +158,12 @@
             <form class="my-[30px]" action="" method="post">
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="utitle">Title</label>
-                    <input id="utitle" type="text" placeholder="Enter title" value="Improving ui design" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <input id="utitle" type="text" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="ustatus">Status</label>
                     <select id="ustatus" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option value="todo" selected>Todo</option>
+                        <option value="todo">Todo</option>
                         <option value="inprogress">In progress</option>
                         <option value="done">done</option>
                     </select>
@@ -171,22 +171,22 @@
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="upriority">Priority</label>
                     <select id="upriority" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option value="p1" selected>High (p1)</option>
+                        <option value="p1">High (p1)</option>
                         <option value="p2">Medium (p2)</option>
                         <option value="p3">Low (p3)</option>
                     </select>
                 </div>
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="udate">Due Date</label>
-                    <input id="udate" type="date" value="2024-10-30" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <input id="udate" type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="udescription">Description</label>
-                    <textarea id="udescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi</textarea>
+                    <textarea id="udescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
                 </div>
 
                 <div class="mt-8 flex gap-x-2 gap-y-6">
-                    <button class="text-xs font-medium bg-blue-700 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Modify</button>
+                    <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow">Modify</button>
                     <button class="text-xs font-medium bg-red-600 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Delete</button>
                 </div>
             </form>
@@ -224,6 +224,7 @@
         </div>
     </section>
     <script src="https://kit.fontawesome.com/3183b49327.js" crossorigin="anonymous"></script>
+    <script src="./js/globals.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/main.js"></script>
 </body>

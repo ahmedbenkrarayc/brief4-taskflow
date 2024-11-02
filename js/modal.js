@@ -49,9 +49,19 @@ filterModal.firstElementChild.lastElementChild.addEventListener('click', () => {
 //detect click on filter modal buttons to open and close
 
 document.addEventListener('click', (e) => {
-    if(e.target && e.target.matches('.taskcard')){
-        showModal(updateModal)
-    }
+    const taskCards = document.querySelectorAll('.taskcard')
+    taskCards.forEach(taskCard => {
+        if(taskCard && (e.target == taskCard || taskCard.contains(e.target))){
+            showModal(updateModal)
+            const task = window.tasks.find(item => item.id == (e.target == taskCard ? e.target.id.split('k')[1] : e.target.parentElement.id.split('k')[1]))
+            console.log(e.target.id)
+            document.getElementById('utitle').value = task.title
+            document.getElementById('ustatus').value = task.status
+            document.getElementById('upriority').value = task.priority
+            document.getElementById('udate').value = task.date
+            document.getElementById('udescription').value = task.description
+        }
+    })
 })
 
 updateModal.firstElementChild.lastElementChild.addEventListener('click', () => {

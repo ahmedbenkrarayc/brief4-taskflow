@@ -1,4 +1,4 @@
-let tasks = []
+// let tasks = []
 
 const todoSection = document.getElementById('todo')
 const doingSection = document.getElementById('doing')
@@ -9,7 +9,6 @@ const taskounter = document.getElementsByClassName('counter')
 const manageValidationErrors = (input, error) => {
     if(error != ""){
         input.classList.add('inputError')
-        console.log(input.classList)
         input.setAttribute('title', error)
     }else{
         if(input.classList.contains('inputError')){
@@ -90,7 +89,7 @@ const validation = (data, type) => {
 
 //Task statistics
 const displayStatistics = () => {
-    const groupedTasks = Object.groupBy(tasks, item => item.status)
+    const groupedTasks = Object.groupBy(window.tasks, item => item.status)
     taskounter[0].textContent = groupedTasks.todo ? groupedTasks.todo.length : 0 
     taskounter[1].textContent = groupedTasks.inprogress ? groupedTasks.inprogress.length : 0 
     taskounter[2].textContent = groupedTasks.done ? groupedTasks.done.length : 0
@@ -106,7 +105,7 @@ const addTask = (e) => {
     const description = document.getElementById('cdescription').value.trim()
 
     const data = {
-        id: tasks.length == 0 ? 1 : tasks[tasks.length-1].id + 1,
+        id: window.tasks.length == 0 ? 1 : window.tasks[window.tasks.length-1].id + 1,
         title,
         status,
         priority,
@@ -116,7 +115,7 @@ const addTask = (e) => {
 
 
     if(validation(data, 'create')){
-        tasks.push(data)
+        window.tasks.push(data)
         displayStatistics()
         const item = document.createElement('div')
         if(data.status == 'todo'){
@@ -162,6 +161,10 @@ const addTask = (e) => {
 
             doneSection.appendChild(item)
         }
+        
+        const createModal = document.getElementById('create-modal')
+        createModal.classList.remove('showModal')
+        createModal.classList.add('hideModal')
     }
 }
 
