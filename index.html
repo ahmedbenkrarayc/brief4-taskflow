@@ -38,21 +38,21 @@
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
                     <h1 class="text-[15px] font-medium mr-5">To-Do</h1>
-                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                    <span class="counter block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">0</span>
                 </div>
                 <i class="fa-solid fa-plus block text-gray-600 cursor-pointer openmd"></i>
             </div>
 
-            <div>
-                <div draggable="true" class="border taskcard bg-white border-l-red-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
-                    <div class="text-red-800 text-[10px] flex items-center gap-x-2 bg-red-200 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
+            <div id="todo">
+                <!-- <div draggable="true" class="p1 border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+                    <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">High Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
                     <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
                     <div class="flex -space-x-1 overflow-hidden mt-6">
                         <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                         <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                       </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <section>
@@ -60,12 +60,12 @@
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
                     <h1 class="text-[15px] font-medium mr-5">In Progress</h1>
-                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                    <span class="counter block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">0</span>
                 </div>
                 <i class="fa-solid fa-plus block text-gray-600 cursor-pointer openmd"></i>
             </div>
-            <div>
-                <div draggable="true" class="border bg-white border-l-orange-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+            <div id="doing">
+                <!-- <div draggable="true" class="border bg-white border-l-orange-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
                     <div class="text-orange-800 text-[10px] flex items-center gap-x-2 bg-orange-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Medium Priority</div>
                     <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
                     <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
@@ -73,7 +73,7 @@
                         <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                         <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                       </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <section>
@@ -81,18 +81,20 @@
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
                     <h1 class="text-[15px] font-medium mr-5">Done</h1>
-                    <span class="block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">3</span>
+                    <span class="counter block text-[#3929a8] font-semibold text-[12px] bg-[#e9eafa] px-[8px] py-[2px] rounded-[4px]">0</span>
                 </div>
                 <i class="fa-solid fa-plus block text-gray-600 cursor-pointer openmd"></i>
             </div>
-            <div draggable="true" class="border bg-white border-l-green-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
-                <div class="text-green-800 text-[10px] flex items-center gap-x-2 bg-green-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Low Priority</div>
-                <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
-                <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
-                <div class="flex -space-x-1 overflow-hidden mt-6">
-                    <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                    <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  </div>
+            <div id="done">
+                <!-- <div draggable="true" class="border bg-white border-l-green-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
+                    <div class="text-green-800 text-[10px] flex items-center gap-x-2 bg-green-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Low Priority</div>
+                    <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
+                    <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
+                    <div class="flex -space-x-1 overflow-hidden mt-6">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                      </div>
+                </div> -->
             </div>
         </div>
         </section>
@@ -109,37 +111,37 @@
 
             <form class="my-[30px]" action="" method="post">
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Title</label>
-                    <input type="text" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <label class="text-[13px] font-medium" for="ctitle">Title</label>
+                    <input type="text" id="ctitle" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Status</label>
-                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option selected disabled>Select an option</option>
+                    <label class="text-[13px] font-medium" for="cstatus">Status</label>
+                    <select id="cstatus" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
                         <option value="todo">Todo</option>
                         <option value="inprogress">In progress</option>
                         <option value="done">done</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Priority</label>
-                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option selected disabled>Select an option</option>
+                    <label class="text-[13px] font-medium" for="cpriority">Priority</label>
+                    <select id="cpriority" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
                         <option value="p1">High (p1)</option>
                         <option value="p2">Medium (p2)</option>
                         <option value="p3">Low (p3)</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Due Date</label>
-                    <input type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <label class="text-[13px] font-medium" for="cdate">Due Date</label>
+                    <input id="cdate" type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Description</label>
-                    <textarea placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
+                    <label class="text-[13px] font-medium" for="cdescription">Description</label>
+                    <textarea id="cdescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
                 </div>
 
-                <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Create</button>
+                <button id="createtask" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Create</button>
             </form>
         </div>
     </section>
@@ -154,37 +156,38 @@
             <h1 class="text-[24px] font-semibold">Update A Task</h1>
 
             <form class="my-[30px]" action="" method="post">
+                <input type="hidden" id="uid" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Title</label>
-                    <input type="text" placeholder="Enter title" value="Improving ui design" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <label class="text-[13px] font-medium" for="utitle">Title</label>
+                    <input id="utitle" type="text" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Status</label>
-                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option value="todo" selected>Todo</option>
+                    <label class="text-[13px] font-medium" for="ustatus">Status</label>
+                    <select id="ustatus" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="todo">Todo</option>
                         <option value="inprogress">In progress</option>
                         <option value="done">done</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Priority</label>
-                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option value="p1" selected>High (p1)</option>
+                    <label class="text-[13px] font-medium" for="upriority">Priority</label>
+                    <select id="upriority" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="p1">High (p1)</option>
                         <option value="p2">Medium (p2)</option>
                         <option value="p3">Low (p3)</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Due Date</label>
-                    <input type="date" value="2024-10-30" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <label class="text-[13px] font-medium" for="udate">Due Date</label>
+                    <input id="udate" type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
                 </div>
                 <div class="mb-4">
-                    <label class="text-[13px] font-medium" for="title">Description</label>
-                    <textarea placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi</textarea>
+                    <label class="text-[13px] font-medium" for="udescription">Description</label>
+                    <textarea id="udescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
                 </div>
 
                 <div class="mt-8 flex gap-x-2 gap-y-6">
-                    <button class="text-xs font-medium bg-blue-700 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Modify</button>
+                    <button id="updatetask" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow">Modify</button>
                     <button class="text-xs font-medium bg-red-600 text-white w-fit h-fit px-4 py-2 rounded-md shadow">Delete</button>
                 </div>
             </form>
@@ -222,6 +225,8 @@
         </div>
     </section>
     <script src="https://kit.fontawesome.com/3183b49327.js" crossorigin="anonymous"></script>
+    <script src="./js/globals.js"></script>
     <script src="./js/modal.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

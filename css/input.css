@@ -28,3 +28,45 @@
 .hideModal{
     animation: movetoleft 700ms ease-in-out forwards;
 }
+
+.inputError{
+    @apply border-red-600;
+}
+
+.p1{
+    @apply border-l-red-600;
+}
+
+.p1 > div:first-child{
+    @apply text-red-800 bg-red-200;
+}
+
+.p2{
+    @apply border-l-orange-600;
+}
+
+.p2 > div:first-child{
+    @apply text-orange-800 bg-orange-200;
+}
+
+.p3{
+    @apply border-l-green-600;
+}
+
+.p3 > div:first-child{
+    @apply text-green-800 bg-green-200;
+}
+
+@keyframes growcard{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.growcard{
+    transform-origin: center;
+    animation: growcard 1s ease-in-out forwards;
+}
