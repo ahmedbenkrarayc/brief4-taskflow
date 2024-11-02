@@ -125,10 +125,14 @@ const addTask = (e) => {
         //display a card
         displayCard(data)
         //hide modal
-        const createModal = document.getElementById('create-modal')
-        createModal.classList.remove('showModal')
-        createModal.classList.add('hideModal')
+        closeModal('create-modal')
     }
+}
+
+const closeModal = (id) => {
+    const modal = document.getElementById(id)
+    modal.classList.remove('showModal')
+    modal.classList.add('hideModal')
 }
 
 //edit a task
@@ -159,6 +163,8 @@ const editTask = (e) => {
         updateCardInfo(data)
         if(isStatusChange)
             changeStatusPlace(data)
+
+        closeModal('update-modal')
     }
 }
 
@@ -202,8 +208,23 @@ const displayCard = (data) => {
     }
 }
 
+//Delete a task
+const deleteTask = (e) => {
+    e.preventDefault()
+    const id = document.getElementById('uid').value
+    const sure = confirm('Are you sure you want to delete this task ?')
+    if(sure){
+        const taskIndex = window.tasks.findIndex(item => item.id == id)
+        window.tasks.splice(taskIndex,1)
+        document.getElementById(`task${id}`).remove()
+        displayStatistics()
+        closeModal('update-modal')
+    }
+}
+
 /* listeners */
 
 //add a new task listener
 document.getElementById('createtask').addEventListener('click', addTask)
 document.getElementById('updatetask').addEventListener('click', editTask)
+document.getElementById('deletetask').addEventListener('click', deleteTask)
