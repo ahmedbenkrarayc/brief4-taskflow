@@ -1,4 +1,4 @@
-// let tasks = []
+let draggedElement, dragparent
 
 const todoSection = document.getElementById('todo')
 const doingSection = document.getElementById('doing')
@@ -123,7 +123,6 @@ const addTask = (e) => {
         //display statistics
         displayStatistics()
         //display a card
-        // displayCard(data)
         filterTasks()
         //hide modal
         closeModal('create-modal')
@@ -163,17 +162,10 @@ const editTask = (e) => {
         displayStatistics()
         // updateCardInfo(data)
         if(isStatusChange)
-            changeStatusPlace(data)
+            document.getElementById(`task${data.id}`).remove()
         filterTasks()
         closeModal('update-modal')
     }
-}
-
-//change task place when status change
-
-const changeStatusPlace = (data) => {
-    document.getElementById(`task${data.id}`).remove()
-    displayCard(data)
 }
 
 //change card info when details change
@@ -190,7 +182,7 @@ const updateCardInfo = (data) => {
 const displayCard = (data) => {
     const item = document.createElement('div')
     item.innerHTML = `
-        <div id="task${data.id}" draggable="true" class="${data.priority} growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
+        <div id="task${data.id}" draggable="true" class="${data.priority} draggable growcard border taskcard bg-white border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4 *:break-all">
             <div class="text-[10px] flex items-center gap-x-2 w-fit px-[10px] py-[4px] rounded-md font-medium">${data.priority == 'p1' ? 'High priority' :  data.priority == 'p2' ? 'Medium priority' : 'Low priority'}</div>
             <h1 class="text-[14px] mt-3 font-medium">${ data.title }</h1>
             <p class="text-[12px] text-gray-600 mt-1">${ data.description.length > 107 ? data.description.slice(0, 107)+'...' : data.description }</p>
@@ -270,6 +262,37 @@ const clear = () => {
     document.getElementById('searchInput').value = ""
     filterTasks()
 }
+
+//drag and drop
+const dragDrop = () => {
+    const dropzones = document.querySelectorAll('.dropzone')
+
+    document.addEventListener('dragstart', (e) => {
+        if(e.target && e.target.classList.contains('draggable')){
+            draggedElement = e.target
+            dragparent = draggedElement.parentElement.parentElement
+        }
+    })
+
+    dropzones.forEach(item => {
+        item.addEventListener('dragover', (e) => {
+            e.preventDefault()
+        })
+
+        item.addEventListener('drop', (e) => {
+            e.preventDefault()
+            if(e.currentTarget != dragparent){
+                const id = draggedElement.id.split('k')[1]
+                const index = window.tasks.findIndex(task => task.id == id)
+                window.tasks[index].status = e.currentTarget.id != 'doing' ? e.currentTarget.id : 'inprogress'
+                filterTasks()
+                displayStatistics()
+            }
+        })
+    })
+}
+
+dragDrop()
 
 /* listeners */
 
