@@ -24,7 +24,7 @@
         <span class="block w-fit text-sm font-medium px-4 py-4 border-b-2 border-primary"><i class="fa-brands fa-trello mr-2"></i>Kanban</span>
         <div class="w-fit flex items-center flex-wrap gap-y-4">
             <div class="flex items-center border rounded-md shadow px-4 py-2 sm:mr-4 md:mr-0">
-                <i class="fa-solid fa-magnifying-glass text-[12px] mr-2"></i><input type="text" placeholder="Search ..." class="outline-none text-[12px]">
+                <i class="fa-solid fa-magnifying-glass text-[12px] mr-2"></i><input id="searchInput" type="text" placeholder="Search ..." class="outline-none text-[12px]">
             </div>
             <span class="sm:hidden md:block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
             <button id="filter" class="text-xs font-medium border bg-white text-primary w-fit h-fit px-4 py-2 rounded-md shadow mr-2"><i class="fa-solid fa-bars-staggered mr-1"></i>Filter</button>
@@ -206,20 +206,23 @@
             <form class="my-[30px]" action="" method="post">
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="title">Priority</label>
-                    <select class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
-                        <option selected disabled>Select an option</option>
-                        <option value="p1">High (p1)</option>
-                        <option value="p2">Medium (p2)</option>
-                        <option value="p3">Low (p3)</option>
+                    <select id="prioritySort" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Sort by priority</option>
+                        <option value="asc">from low to high</option>
+                        <option value="desc">from high to low</option>
                     </select>
                 </div>
                 <div class="mb-4">
                     <label class="text-[13px] font-medium" for="title">Due Date</label>
-                    <input type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                    <select id="dateSort" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Sort by due date</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
                 </div>
                 <div class="mt-10 flex gap-x-2 gap-y-6">
-                    <button class="text-xs font-medium bg-primary border-primary border-[1.5px] text-white w-fit h-fit px-4 py-2 rounded-md shadow">Apply Filters</button>
-                    <button class="text-xs font-medium text-primary border-primary border-[1.5px] w-fit h-fit px-4 py-2 rounded-md shadow">CLear Filters</button>
+                    <button id="apply" class="text-xs font-medium bg-primary border-primary border-[1.5px] text-white w-fit h-fit px-4 py-2 rounded-md shadow">Apply Filters</button>
+                    <button id="cancelfilters" class="text-xs font-medium text-primary border-primary border-[1.5px] w-fit h-fit px-4 py-2 rounded-md shadow">CLear Filters</button>
                 </div>
             </form>
         </div>
