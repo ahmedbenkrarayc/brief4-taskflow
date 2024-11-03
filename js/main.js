@@ -1,4 +1,5 @@
 let draggedElement, dragparent
+let multipleData = []
 
 const todoSection = document.getElementById('todo')
 const doingSection = document.getElementById('doing')
@@ -19,11 +20,11 @@ const manageValidationErrors = (input, error) => {
 }
 
 const validation = (data, type) => {
-    const titleInput = type == 'create' ? document.getElementById('ctitle') : document.getElementById('utitle')
-    const statusInput = type == 'create' ? document.getElementById('cstatus') : document.getElementById('ustatus')
-    const priorityInput = type == 'create' ? document.getElementById('cpriority') : document.getElementById('upriority')
-    const dateInput = type == 'create' ? document.getElementById('cdate') : document.getElementById('udate')
-    const descriptionInput = type == 'create' ? document.getElementById('cdescription') : document.getElementById('udescription')
+    const titleInput = type == 'create' ? document.getElementById('ctitle') : type == 'update' ? document.getElementById('utitle') : document.getElementById('mtitle')
+    const statusInput = type == 'create' ? document.getElementById('cstatus') : type == 'update' ? document.getElementById('ustatus') : document.getElementById('mstatus')
+    const priorityInput = type == 'create' ? document.getElementById('cpriority') : type == 'update' ? document.getElementById('upriority') : document.getElementById('mpriority')
+    const dateInput = type == 'create' ? document.getElementById('cdate') : type == 'update' ? document.getElementById('udate') : document.getElementById('mdate')
+    const descriptionInput = type == 'create' ? document.getElementById('cdescription') : type == 'update' ? document.getElementById('udescription') : document.getElementById('mdescription')
 
     const titleRegex = /^[A-Za-z0-9\s]{5,}$/
     const descriptionRegex = /^[A-Za-z0-9\s.,!@#$%^&*()_+\-=\[\]{};:']{10,}$/
@@ -78,7 +79,7 @@ const validation = (data, type) => {
         manageValidationErrors(descriptionInput, '')
     }
 
-    if(type == 'create'){
+    if(type != 'update'){
         titleInput.value = ''
         statusInput.value = ''
         priorityInput.value = ''
@@ -294,6 +295,62 @@ const dragDrop = () => {
 
 dragDrop()
 
+//create multiple
+
+const createMultiple = (e) => {
+    e.preventDefault()
+    
+    const multidisplay = document.getElementById('multidisplay')
+    
+    const title = document.getElementById('mtitle').value.trim()
+    const status = document.getElementById('mstatus').value.trim()
+    const priority = document.getElementById('mpriority').value.trim()
+    const date = document.getElementById('mdate').value.trim()
+    const description = document.getElementById('mdescription').value.trim()
+
+    const data = {
+        id: new Date().getTime(),
+        title, 
+        status,
+        priority,
+        date,
+        description
+    }
+
+    
+    if(validation(data, 'multiple')){
+        multipleData.push(data)
+        multidisplay.innerHTML += `
+            <div id="multi${data.id}" class="flex justify-between items-center mb-4 pb-4 border-b">
+                <h1 class="text-[14px] font-medium">${data.title}</h1>
+                <i onclick="deleteTempTask(${data.id})" class="deletetmp fa-solid fa-x text-[12px] cursor-pointer"></i>
+            </div>
+        `
+    }
+}
+
+const deleteTempTask = (id) => {
+    const index = multipleData.findIndex(item => item.id == id)
+    multipleData.splice(index, 1)
+    document.getElementById("multi"+id).remove()
+}
+
+const multiSave = (e) => {
+    e.preventDefault()
+    if(multipleData.length > 0){
+        multipleData.forEach(item => {
+            item.id = window.tasks.length != 0 ? window.tasks[window.tasks.length - 1].id + 1 : 1
+            window.tasks.push(item)
+        })
+        filterTasks()
+        displayStatistics()
+        const children = document.getElementById('multidisplay').children
+        Array.from(children).forEach(item => item.remove())
+        multipleData = []
+        closeModal('multiple-modal')
+    }
+}
+
 /* listeners */
 
 //add a new task listener
@@ -309,3 +366,5 @@ document.getElementById('cancelfilters').addEventListener('click', (e) => {
     e.preventDefault()
     clear()
 })
+document.getElementById('addMulti').addEventListener('click', createMultiple)
+document.getElementById('multipletask').addEventListener('click', multiSave)

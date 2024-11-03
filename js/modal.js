@@ -1,6 +1,7 @@
 const createModal = document.getElementById('create-modal')
 const filterModal = document.getElementById('filter-modal')
 const updateModal = document.getElementById('update-modal')
+const multipleModal = document.getElementById('multiple-modal')
 
 //open items for create modal
 const openbtns = document.getElementsByClassName('openmd')
@@ -8,9 +9,11 @@ const openbtns = document.getElementsByClassName('openmd')
 //open item for filters button
 const filterbtn = document.getElementById('filter')
 
-//open item for filters button
+//open item for taskcard click for update
 const updatebtns = document.getElementsByClassName('taskcard')
-console.log(updatebtns)
+
+//open item for taskcard click for update
+const multiplebtn = document.getElementById('multiplebtn')
 
 const showModal = (modal) => {
     if(modal.classList.contains('hideModal'))
@@ -44,6 +47,14 @@ filterbtn.addEventListener('click', () => {
 
 filterModal.firstElementChild.lastElementChild.addEventListener('click', () => {
     hideModal(filterModal)
+})
+
+multiplebtn.addEventListener('click', () => {
+    showModal(multipleModal)
+})
+
+multipleModal.firstElementChild.lastElementChild.addEventListener('click', () => {
+    hideModal(multipleModal)
 })
 
 //detect click on filter modal buttons to open and close

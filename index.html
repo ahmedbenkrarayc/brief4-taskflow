@@ -6,7 +6,7 @@
     <title>TaskFlow</title>
     <link href="./css/output.css" rel="stylesheet">
 </head>
-<body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary">
+<body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary [&::-webkit-scrollbar]:w-0">
     <header class="flex justify-between items-center flex-wrap gap-y-6">
         <div class="flex items-center gap-x-4">
             <span class="block cursor-pointer px-4 py-2 w-fit text-white sm:text-lg md:text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
@@ -28,7 +28,7 @@
             </div>
             <span class="sm:hidden md:block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
             <button id="filter" class="text-xs font-medium border bg-white text-primary w-fit h-fit px-4 py-2 rounded-md shadow mr-2"><i class="fa-solid fa-bars-staggered mr-1"></i>Filter</button>
-            <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
+            <button id="multiplebtn" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
         </div>
     </section>
 
@@ -142,6 +142,54 @@
                 </div>
 
                 <button id="createtask" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Create</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- create multiple modal -->
+    <section id="multiple-modal" class="fixed top-0 right-[-100%] bg-white shadow-2xl h-screen sm:w-[90%] md:w-[400px] ml-auto rounded-l-md overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-lg">
+        <div class="px-6 py-4 text-[#707085] flex items-center justify-between border-b">
+            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project</span>
+            <i class="block fa-solid fa-xmark cursor-pointer"></i>
+        </div>
+        <div class="px-6 pt-6">
+            <h1 class="text-[24px] font-semibold">Multiple Tasks</h1>
+            <div id="multidisplay" class="mt-4"></div>
+
+            <form class="my-[30px]" action="" method="post">
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mtitle">Title</label>
+                    <input type="text" id="mtitle" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mstatus">Status</label>
+                    <select id="mstatus" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="todo">Todo</option>
+                        <option value="inprogress">In progress</option>
+                        <option value="done">done</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mpriority">Priority</label>
+                    <select id="mpriority" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="p1">High (p1)</option>
+                        <option value="p2">Medium (p2)</option>
+                        <option value="p3">Low (p3)</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mdate">Due Date</label>
+                    <input id="mdate" type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mdescription">Description</label>
+                    <textarea id="mdescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
+                </div>
+
+                <button id="addMulti" class="text-xs flex items-center justify-center ml-auto rounded-full font-medium bg-white text-primary w-[30px] h-[30px] border shadow"><i class="fa-solid fa-plus"></i></button>
+                <button id="multipletask" class="text-xs block font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow">Save</button>
             </form>
         </div>
     </section>
