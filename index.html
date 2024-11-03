@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
     <link href="./css/output.css" rel="stylesheet">
+    <meta name="description" content="A modern and dynamic To-Do List application built with Tailwind CSS. Features include task creation, status updates, priority display, sorting, filtering, and drag-and-drop functionality. Stay organized with accessible design, animation, and local storage for saved tasks.">
+    <meta name="keywords" content="To-Do List app, Task management, Front-end development, Tailwind CSS, JavaScript task manager, Accessible web design, Task sorting and filtering, Drag-and-drop task management, LocalStorage tasks, Task priority management, Responsive design">
+    <meta name="author" content="Ahmed Benkrara">
 </head>
 <body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary [&::-webkit-scrollbar]:w-0">
     <header class="flex justify-between items-center flex-wrap gap-y-6">
@@ -33,7 +36,7 @@
     </section>
 
     <section class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
-        <section>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
@@ -54,8 +57,8 @@
                       </div>
                 </div> -->
             </div>
-        </section>
-        <section>
+        </div>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
@@ -75,8 +78,8 @@
                       </div>
                 </div> -->
             </div>
-        </section>
-        <section>
+        </div>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
@@ -86,18 +89,9 @@
                 <i class="fa-solid fa-plus block text-gray-600 cursor-pointer openmd"></i>
             </div>
             <div class="dropzone min-h-screen " id="done">
-                <!-- <div draggable="true" class="border bg-white border-l-green-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
-                    <div class="text-green-800 text-[10px] flex items-center gap-x-2 bg-green-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Low Priority</div>
-                    <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
-                    <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
-                    <div class="flex -space-x-1 overflow-hidden mt-6">
-                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                      </div>
-                </div> -->
+
             </div>
         </div>
-        </section>
     </section>
     
     <!-- create modal -->
