@@ -123,7 +123,8 @@ const addTask = (e) => {
         //display statistics
         displayStatistics()
         //display a card
-        displayCard(data)
+        // displayCard(data)
+        filterTasks()
         //hide modal
         closeModal('create-modal')
     }
@@ -160,10 +161,10 @@ const editTask = (e) => {
         const isStatusChange = window.tasks[taskIndex].status != data.status
         window.tasks[taskIndex] = data
         displayStatistics()
-        updateCardInfo(data)
+        // updateCardInfo(data)
         if(isStatusChange)
             changeStatusPlace(data)
-
+        filterTasks()
         closeModal('update-modal')
     }
 }
@@ -222,9 +223,66 @@ const deleteTask = (e) => {
     }
 }
 
+/* filters */
+
+//filter by keyword
+const filterTasks = () => {
+    const dataClone = [...window.tasks]
+    const keyword = document.getElementById('searchInput').value
+    const prioritySort = document.getElementById('prioritySort').value
+    const dateSort = document.getElementById('dateSort').value
+
+    const data = dataClone.filter(item => item.title.toLowerCase().includes(keyword.toLowerCase()) || item.description.toLowerCase().includes(keyword.toLowerCase()))
+
+    if(prioritySort != "" && dateSort != ""){
+        data.sort((a, b) => {
+            if(a.priority != b.priority){
+                return prioritySort == "asc" ? b.priority.localeCompare(a.priority) : a.priority.localeCompare(b.priority)
+            }
+
+            return dateSort == "asc" ? new Date(a.date) - new Date(b.date) : new Date(b.date) - new Date(a.date)
+        })
+    }else{
+        if(prioritySort != ""){
+            data.sort((a, b) => prioritySort == "asc" ? b.priority.localeCompare(a.priority) : a.priority.localeCompare(b.priority))
+        }
+    
+        if(dateSort != ""){
+            data.sort((a, b) => dateSort == "asc" ? new Date(a.date) - new Date(b.date) : new Date(b.date) - new Date(a.date))
+        }
+    }
+
+
+    window.tasks.forEach(item => {
+        document.getElementById(`task${item.id}`)?.remove()
+    })
+
+
+    data.forEach(item => {
+        displayCard(item)
+    })
+}
+
+//clear filters
+const clear = () => {
+    document.getElementById('prioritySort').value = ""
+    document.getElementById('dateSort').value = ""
+    document.getElementById('searchInput').value = ""
+    filterTasks()
+}
+
 /* listeners */
 
 //add a new task listener
 document.getElementById('createtask').addEventListener('click', addTask)
 document.getElementById('updatetask').addEventListener('click', editTask)
 document.getElementById('deletetask').addEventListener('click', deleteTask)
+document.getElementById('searchInput').addEventListener('input', filterTasks)
+document.getElementById('apply').addEventListener('click', (e) => {
+    e.preventDefault()
+    filterTasks()
+})
+document.getElementById('cancelfilters').addEventListener('click', (e) => {
+    e.preventDefault()
+    clear()
+})
