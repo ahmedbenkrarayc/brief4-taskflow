@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
     <link href="./css/output.css" rel="stylesheet">
+    <meta name="description" content="A modern and dynamic To-Do List application built with Tailwind CSS. Features include task creation, status updates, priority display, sorting, filtering, and drag-and-drop functionality. Stay organized with accessible design, animation, and local storage for saved tasks.">
+    <meta name="keywords" content="To-Do List app, Task management, Front-end development, Tailwind CSS, JavaScript task manager, Accessible web design, Task sorting and filtering, Drag-and-drop task management, LocalStorage tasks, Task priority management, Responsive design">
+    <meta name="author" content="Ahmed Benkrara">
 </head>
-<body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary">
+<body class="sm:p-4 md:p-8 lg:p-10 font-poppins text-primary [&::-webkit-scrollbar]:w-0">
     <header class="flex justify-between items-center flex-wrap gap-y-6">
         <div class="flex items-center gap-x-4">
             <span class="block cursor-pointer px-4 py-2 w-fit text-white sm:text-lg md:text-xl font-bold rounded-md bg-gradient-to-r from-sky-500 to-indigo-500">T</span>
@@ -28,12 +31,12 @@
             </div>
             <span class="sm:hidden md:block w-[1px] h-[32px] bg-gray-100 mx-4"></span>
             <button id="filter" class="text-xs font-medium border bg-white text-primary w-fit h-fit px-4 py-2 rounded-md shadow mr-2"><i class="fa-solid fa-bars-staggered mr-1"></i>Filter</button>
-            <button class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
+            <button id="multiplebtn" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Multiple</button>
         </div>
     </section>
 
     <section class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
-        <section>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#5274ee] block mr-2"></span>
@@ -54,8 +57,8 @@
                       </div>
                 </div> -->
             </div>
-        </section>
-        <section>
+        </div>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#f0883a] block mr-2"></span>
@@ -75,8 +78,8 @@
                       </div>
                 </div> -->
             </div>
-        </section>
-        <section>
+        </div>
+        <div>
             <div class="flex items-center justify-between bg-[#f6f7fa] px-4 py-2 rounded-md mb-6">
                 <div class="flex items-center">
                     <span class="w-4 h-4 rounded-full border-2 border-[#2dca7f] block mr-2"></span>
@@ -86,18 +89,9 @@
                 <i class="fa-solid fa-plus block text-gray-600 cursor-pointer openmd"></i>
             </div>
             <div class="dropzone min-h-screen " id="done">
-                <!-- <div draggable="true" class="border bg-white border-l-green-600 border-l-4 rounded-md px-4 py-4 shadow cursor-pointer mb-4">
-                    <div class="text-green-800 text-[10px] flex items-center gap-x-2 bg-green-200 w-fit px-[10px] py-[4px] rounded-md font-medium">Low Priority</div>
-                    <h1 class="text-[14px] mt-3 font-medium">Improving ui design</h1>
-                    <p class="text-[12px] text-gray-600 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga fugiat repellat quasi dicta in repellat quasi ...</p>
-                    <div class="flex -space-x-1 overflow-hidden mt-6">
-                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                      </div>
-                </div> -->
+
             </div>
         </div>
-        </section>
     </section>
     
     <!-- create modal -->
@@ -142,6 +136,54 @@
                 </div>
 
                 <button id="createtask" class="text-xs font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow"><i class="fa-solid fa-plus mr-1"></i>Create</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- create multiple modal -->
+    <section id="multiple-modal" class="fixed top-0 right-[-100%] bg-white shadow-2xl h-screen sm:w-[90%] md:w-[400px] ml-auto rounded-l-md overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-lg">
+        <div class="px-6 py-4 text-[#707085] flex items-center justify-between border-b">
+            <span class="block font-medium text-[12px]"><i class="fa-brands fa-trello mr-2"></i>Taskflow project</span>
+            <i class="block fa-solid fa-xmark cursor-pointer"></i>
+        </div>
+        <div class="px-6 pt-6">
+            <h1 class="text-[24px] font-semibold">Multiple Tasks</h1>
+            <div id="multidisplay" class="mt-4"></div>
+
+            <form class="my-[30px]" action="" method="post">
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mtitle">Title</label>
+                    <input type="text" id="mtitle" placeholder="Enter title" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mstatus">Status</label>
+                    <select id="mstatus" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="todo">Todo</option>
+                        <option value="inprogress">In progress</option>
+                        <option value="done">done</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mpriority">Priority</label>
+                    <select id="mpriority" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="p1">High (p1)</option>
+                        <option value="p2">Medium (p2)</option>
+                        <option value="p3">Low (p3)</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mdate">Due Date</label>
+                    <input id="mdate" type="date" class="block shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1">
+                </div>
+                <div class="mb-4">
+                    <label class="text-[13px] font-medium" for="mdescription">Description</label>
+                    <textarea id="mdescription" placeholder="Enter description" class="block resize-none shadow w-full px-4 py-2 text-[12px] outline-none border rounded-md mt-1 h-[100px]"></textarea>
+                </div>
+
+                <button id="addMulti" class="text-xs flex items-center justify-center ml-auto rounded-full font-medium bg-white text-primary w-[30px] h-[30px] border shadow"><i class="fa-solid fa-plus"></i></button>
+                <button id="multipletask" class="text-xs block font-medium bg-primary text-white w-fit h-fit px-4 py-2 rounded-md shadow">Save</button>
             </form>
         </div>
     </section>
